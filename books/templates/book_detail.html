@@ -1,0 +1,17 @@
+{% extends "books_base.html" %}
+
+{% block body %}
+    <h3>Details</h3>
+    Name: {{ object.name }}<br>
+    Description: {{ object.description }}<br>
+    Rating: {{ object.rating }}<br>
+    Language: {{ object.get_language_display }}<br>
+    Released: {{ object.released|date:"d.m Y"}}<br>
+    Likes: {{ object.likes }}<br><br>
+
+    <form action="{% url "book_detail" object.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Like">
+    </form>
+
+{% endblock body %}

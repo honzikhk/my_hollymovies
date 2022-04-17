@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/app1.css">
+</head>
+<body>
+<h1>Books App - {{page_name}}</h1><br>
+{% block navbar %}
+    <a href="{% url 'welcome_page' %}">Homepage</a><br><br>
+    <a href="{% url 'books' %}">Books</a><br>
+    <a href="{% url 'authors' %}">Authors</a><br><br>
+    <a href="{% url "book_shelf" %}">Book shelf</a><br><br>
+    <a href="{% url "book_create" %}">Create book</a><br>
+    <a href="{% url "author_create" %}">Create author</a><br><br>
+
+{% endblock navbar %}
+
+{% block body %}
+{% endblock body %}
+</body>
+</html>

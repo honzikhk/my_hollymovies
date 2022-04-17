@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+    <p>Continue to:</p><a href="{% url 'books_homepage' %}">Books</a><br><br>
+    <p>or:</p>
+    <a href="{% url 'movies_homepage' %}">Movies</a><br><br>
+{% endblock navbar %}

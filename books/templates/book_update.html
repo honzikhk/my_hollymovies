@@ -1,0 +1,10 @@
+{% extends 'books_base.html' %}
+
+{% block body %}
+    <form action="{% url 'book_update' object.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update movie">
+    </form><br><br>
+    <a href="{% url "book_confirm_delete" book.id %}">Delete this book</a>
+{% endblock body %}

@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from movies.models import Movie, Actor, Director, Contact
+from books.models import Book, Author
 
 
 class MovieAdmin(admin.ModelAdmin):
@@ -23,9 +24,15 @@ class DirectorAdmin(BasePersonAdmin):
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'contact_at', )
+    
+
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'language', 'rating', 'genres', 'author', 'on_shelf')
+    list_filter = ('language', )
 
 
 admin.site.register(Movie, MovieAdmin)
 admin.site.register(Actor, ActorAdmin)
 admin.site.register(Director, DirectorAdmin)
 admin.site.register(Contact, ContactAdmin)
+admin.site.register(Book, BookAdmin)

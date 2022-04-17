@@ -1,0 +1,9 @@
+{%  extends "books_base.html" %}
+
+{% block body %}
+    <h4>All authors ({{ object_list.count }})</h4>
+    {% for author in object_list %}
+        <p>{{ author.name }} - <a href="{% url "author_detail" author.id %}">Detail</a> - <a href="{% url "author_update" author.id %}">Update</a></p>
+
+    {% endfor %}
+{% endblock body %}

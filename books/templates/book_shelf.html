@@ -1,0 +1,9 @@
+{% extends "books_base.html" %}
+
+{% block body %}
+    <h3>Books on the shelf:</h3>
+    {% for book in object_list %}
+        <p>{{ book.name }}</p>
+    {% endfor %}
+
+{% endblock body %}

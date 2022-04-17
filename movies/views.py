@@ -7,6 +7,17 @@ from django.views.generic import ListView, DetailView, TemplateView, FormView, C
 from movies.forms import ContactForm, MovieForm, ActorForm, DirectorForm
 from movies.models import Movie, Actor, Director, Contact
 from django.views import View
+from books.models import Book
+
+
+class WelcomePage(View):
+    def get(self, request, *args, **kwargs):
+        context = {
+            'number_of_movies': Movie.objects.all().count(),
+            'number_of_books': Book.objects.all().count(),
+            'page_name': 'Welcome page'
+        }
+        return TemplateResponse(request, 'welcome_page.html', context=context)
 
 
 class HomepageView(View):
@@ -15,9 +26,9 @@ class HomepageView(View):
             'number_of_movies': Movie.objects.all().count(),
             'number_of_actors': Actor.objects.all().count(),
             'number_of_directors': Director.objects.all().count(),
-            'page_name': 'Homepage'
+            'page_name': 'Movies homepage'
         }
-        return TemplateResponse(request, 'homepage.html', context=context)
+        return TemplateResponse(request, 'movies_homepage.html', context=context)
 
 
 # def homepage_view(request):
@@ -27,7 +38,7 @@ class HomepageView(View):
 #             'number_of_actors': Actor.objects.all().count(),
 #             'page_name': 'Homepage'
 #         }
-#         return TemplateResponse(request, 'homepage.html', context=context)
+#         return TemplateResponse(request, 'movies_homepage.html', context=context)
 #     elif request.method == 'POST':
 #         return HttpResponse(request, 'method not allowed')
 
@@ -186,51 +197,60 @@ class CreateMovieView(CreateView):
     template_name = 'movie_create.html'
     form_class = MovieForm
     model = Movie
+    extra_context = {'page_name': 'Create movie'}
 
 
 class CreateActorView(CreateView):
     template_name = 'actor_create.html'
     form_class = ActorForm
     model = Actor
+    extra_context = {'page_name': 'Create actor'}
 
 
 class UpdateMovieView(UpdateView):
     template_name = 'movie_update.html'
     form_class = MovieForm
     model = Movie
+    extra_context = {'page_name': 'Update movie'}
 
 
 class UpdateActorView(UpdateView):
     template_name = 'actor_update.html'
     form_class = ActorForm
     model = Actor
+    extra_context = {'page_name': 'Update actor'}
 
 
 class DeleteMovieView(DeleteView):
     template_name = 'movie_confirm_delete.html'
     model = Movie
     success_url = reverse_lazy('movies')
+    extra_context = {'page_name': 'Delete movie'}
 
 
 class DeleteActorView(DeleteView):
     template_name = 'actor_confirm_delete.html'
     model = Actor
     success_url = reverse_lazy('actors')
+    extra_context = {'page_name': 'Delete actor'}
 
 
 class CreateDirectorView(CreateView):
     template_name = 'director_create.html'
     form_class = DirectorForm
     model = Director
+    extra_context = {'page_name': 'Create director'}
 
 
 class UpdateDirectorView(UpdateView):
     template_name = 'director_update.html'
     form_class = DirectorForm
     model = Director
+    extra_context = {'page_name': 'Update director'}
 
 
 class DeleteDirectorView(DeleteView):
     template_name = 'director_confirm_delete.html'
     model = Director
     success_url = reverse_lazy('directors')
+    extra_context = {'page_name': 'Delete director'}

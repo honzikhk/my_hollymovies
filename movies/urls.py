@@ -2,10 +2,12 @@ from django.urls import path
 from movies.views import HomepageView, ActorListView, MovieListView, MovieDetailView, \
     ActorDetailView, Jinja2TestingView, DirectorListView, DirectorDetailView, ContactView, CreateMovieView, \
     CreateActorView, UpdateMovieView, UpdateActorView, DeleteMovieView, DeleteActorView, CreateDirectorView, \
-    UpdateDirectorView, DeleteDirectorView
+    UpdateDirectorView, DeleteDirectorView, WelcomePage
+from books.views import BookHomepageView
 
 urlpatterns = (
-    path('', HomepageView.as_view(), name='homepage'),
+    path('', WelcomePage.as_view(), name='welcome_page'),
+    path('movies_homepage/', HomepageView.as_view(), name='movies_homepage'),
     path('actors/', ActorListView.as_view(), name='actors'),
     path('movies/', MovieListView.as_view(), name='movies'),
     path('movie/<int:pk>/', MovieDetailView.as_view(), name='movie_detail'),
