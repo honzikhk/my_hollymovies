@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/app1.css' %}">
 
 {% block navbar %}
-    <p>Continue to:</p><a href="{% url 'books_homepage' %}">Books</a><br><br>
-    <p>or:</p>
+    <p>Continue to:</p><a href="{% url 'books_homepage' %}">Books</a> or:
     <a href="{% url 'movies_homepage' %}">Movies</a><br><br>
 {% endblock navbar %}

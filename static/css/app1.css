@@ -1,8 +1,12 @@
 
 
 body {
-color: rgb(240, 240, 240);
-background: black;
+color: rgb(255, 255, 255);
+background: #732222;
 font-family: Roboto, Helvetica, Arial, sans-serif;
 text-align: center;
+}
+
+a {
+    color: yellow;
 }
