@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="{% static 'css/app1.css' %}">
 
 {% block navbar %}
-    <p>Continue to:</p><a href="{% url 'books_homepage' %}">Books</a> or:
-    <a href="{% url 'movies_homepage' %}">Movies</a><br><br>
+    <p>Continue to:</p>
+    <div class="navbar_1">
+    <a class="item" href="{% url 'books_homepage' %}">Books</a>
+        <div class="or">or:</div>
+    <a class="item" href="{% url 'movies_homepage' %}">Movies</a><br><br>
+    </div>
 {% endblock navbar %}

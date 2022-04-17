@@ -10,3 +10,20 @@ text-align: center;
 a {
     color: yellow;
 }
+
+.navbar_1{
+    padding: 10px;
+    background: #732222;
+    border-radius: 5px;
+    margin: 20px auto;
+    display: inline-flex;
+    height: auto;
+}
+
+.item {
+    color: #fff;
+    padding: 15px;
+    margin: 5px;
+    background: #3db5da;
+    border-radius: 3px;
+}
